@@ -26,7 +26,7 @@ Once you activate the plugin, it's ready to go with the default settings - butto
 **Translators**
 - Spanish (es_ES) -  Andrew Kurtis [WebHostingHub](http://www.webhostinghub.com/)
 
-If you want to learn more about the plugin, visit its website: https://highfiveplugins.com/jpibfi/jquery-pin-it-button-for-images-documentation/
+If you want to learn more about the plugin, visit its documentation: https://dougfinnie.github.io/jquery-pin-it-button-for-images/docs/
 
 (This plugin is not related to or endorsed by Pinterest or its affiliates)
 

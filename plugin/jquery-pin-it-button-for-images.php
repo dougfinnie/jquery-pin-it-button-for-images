@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: jQuery Pin It Button for Images
-Plugin URI: https://highfiveplugins.com/jpibfi/jquery-pin-it-button-for-images-documentation/
+Plugin URI: https://dougfinnie.github.io/jquery-pin-it-button-for-images/docs/
 Description: Highlights images on hover and adds a "Pin It" button over them for easy pinning.
 Text Domain: jquery-pin-it-button-for-images
 Domain Path: /languages
 Author: Marcin Skrzypiec
 Version: 4.0.0
-Author URI: https://highfiveplugins.com/
+Author URI: https://github.com/dougfinnie/jquery-pin-it-button-for-images
 */
 
 if ( !defined( 'WPINC' ) )

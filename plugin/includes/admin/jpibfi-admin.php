@@ -99,7 +99,7 @@ class JPIBFI_Admin {
 
 		$links = array(
 			array(
-				'url'   => 'https://highfiveplugins.com/jpibfi/jquery-pin-it-button-for-images-documentation/',
+				'url'   => 'https://dougfinnie.github.io/jquery-pin-it-button-for-images/docs/',
 				'label' => __( 'Documentation', 'jquery-pin-it-button-for-images' )
 			),
 			array(
@@ -160,7 +160,7 @@ class JPIBFI_Admin {
             <h2><?php _e( 'jQuery Pin It Button For Images Options', 'jquery-pin-it-button-for-images' ); ?></h2>
             <div id="icon-plugins" class="icon32"></div>
             <jpibfi settings-name="jpibfi_settings"></jpibfi>
-            <h3 id="jpibfi-error"><?php printf(__('If you cannot see the settings page, <a href="%s" target="_blank">click here</a>', 'jquery-pin-it-button-for-images'), 'https://highfiveplugins.com/jpibfi/jquery-pin-it-button-for-images-documentation/#Empty_settings_page'); ?></h3>
+            <h3 id="jpibfi-error"><?php printf(__('If you cannot see the settings page, <a href="%s" target="_blank">click here</a>', 'jquery-pin-it-button-for-images'), 'https://dougfinnie.github.io/jquery-pin-it-button-for-images/docs/#empty-settings-page'); ?></h3>
         </div>
 		<?php
 	}
