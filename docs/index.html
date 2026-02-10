@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Pin It Button For Images &mdash; Documentation</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 780px; margin: 2rem auto; padding: 0 1.5rem; color: #222; line-height: 1.7; }
+    h1 { font-size: 1.8rem; border-bottom: 2px solid #c00; padding-bottom: .4rem; }
+    h2 { font-size: 1.3rem; border-bottom: 1px solid #ddd; padding-bottom: .25rem; margin-top: 2.5rem; }
+    h3 { font-size: 1.05rem; margin-top: 1.8rem; }
+    pre, code { font-family: monospace; background: #f4f4f4; border-radius: 3px; }
+    pre { padding: .75rem 1rem; overflow-x: auto; }
+    code { padding: .1em .3em; font-size: .92em; }
+    img { max-width: 100%; height: auto; display: block; margin: .75rem auto; border: 1px solid #ddd; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: .4rem .75rem; }
+    th { background: #f0f0f0; }
+    ul, ol { padding-left: 1.5rem; }
+    li { margin-bottom: .3rem; }
+    nav#toc { background: #f9f9f9; border: 1px solid #ddd; padding: 1rem 1.5rem; margin-bottom: 2rem; display: inline-block; min-width: 260px; }
+    nav#toc p { font-weight: bold; margin: 0 0 .5rem; }
+    nav#toc ol { margin: 0; }
+    nav#toc li { margin-bottom: .1rem; }
+    a { color: #c00; }
+  </style>
+</head>
+<body>
+
+<h1>jQuery Pin It Button For Images &mdash; Documentation</h1>
+
+<p>jQuery Pin It Button For Images is a free plugin that allows your readers to easily pin images
+in your blog posts by simple hovering over them and clicking a button. It is highly customizable,
+so you can adjust it to your own needs. You can download it on the
+<a href="https://wordpress.org/plugins/jquery-pin-it-button-for-images/" target="_blank" rel="noopener">WordPress plugin repository</a>
+or find the source on <a href="https://github.com/dougfinnie/jquery-pin-it-button-for-images" target="_blank" rel="noopener">GitHub</a>.</p>
+
+<nav id="toc">
+  <p>Contents</p>
+  <ol>
+    <li><a href="#selection-settings">Selection settings</a>
+      <ol>
+        <li><a href="#enabled-disabled-classes">Enabled and disabled classes</a></li>
+        <li><a href="#minimum-image-resolution">Minimum image resolution</a></li>
+      </ol>
+    </li>
+    <li><a href="#visual-settings">Visual settings</a>
+      <ol>
+        <li><a href="#pin-linked-images">Pin linked images</a></li>
+        <li><a href="#transparency-value">Transparency value</a></li>
+      </ol>
+    </li>
+    <li><a href="#downloading-older-version">Downloading an older version of the plugin</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+    <li><a href="#faq">Common issues and Frequently Asked Questions</a>
+      <ol>
+        <li><a href="#something-went-wrong">&ldquo;Something went wrong&rdquo; when pinning</a></li>
+        <li><a href="#repin">Can I set up an image to be a repin of the original image?</a></li>
+        <li><a href="#empty-settings-page">Empty settings page</a></li>
+        <li><a href="#mobile">Plugin does not work on mobile devices</a></li>
+        <li><a href="#visual-composer">Enabled/disabled classes don&rsquo;t work in Visual Composer</a></li>
+        <li><a href="#cannot-click">&ldquo;Pin It&rdquo; button is visible but I cannot click it</a></li>
+        <li><a href="#non-img">&ldquo;Pin it&rdquo; button doesn&rsquo;t show up on non-img elements</a></li>
+        <li><a href="#slider">No &ldquo;Pin it&rdquo; button on a slider</a></li>
+        <li><a href="#multiple-images">Pin It button does not bring up multiple images to choose from</a></li>
+        <li><a href="#two-buttons">Two &ldquo;Pin It&rdquo; buttons</a></li>
+        <li><a href="#social-icons">Disable Pin it button from social media icons</a></li>
+        <li><a href="#broken-icon">Broken icon on the button</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+
+<h2 id="selection-settings">Selection settings</h2>
+
+<h3 id="enabled-disabled-classes">Enabled and disabled classes</h3>
+
+<p>Enabled and disabled classes are an easy way to activate or deactivate the &ldquo;Pin it&rdquo; button on
+certain images. Let&rsquo;s see how it works.</p>
+
+<p>In this example I&rsquo;ll use the <em>Disabled classes</em>, but the <em>Enabled classes</em> setting works the same
+way (except you use it to show the &ldquo;Pin it&rdquo; button only on certain images instead of hiding the
+button on certain images).</p>
+
+<p>Let&rsquo;s start with the settings panel. Our current <em>Disabled classes</em> setting looks like the
+following:</p>
+<img src="images/disabled_classes_setting_ex.jpg" alt="Disabled classes setting example" width="594" height="56">
+
+<p>Classes are separated by semicolons, so we have two classes currently available: <strong>wp-smiley</strong>
+and <strong>nopin</strong>. Let&rsquo;s use the latter to disable the button on an image in a blog post. If you want
+to use another class, feel free to add it (make sure you separate it using a semicolon).</p>
+
+<p>In order to use the class you need to modify the class attribute of the image you want to disable.
+You can do that using one of two options:</p>
+<ul>
+  <li>Using WordPress&rsquo; image editor</li>
+  <li>Using text editor</li>
+</ul>
+
+<p><strong>Using WordPress&rsquo; image editor</strong></p>
+<ul>
+  <li>Open WordPress&rsquo; image editor<br>
+    <img src="images/image_editor_example.jpg" alt="WordPress image editor" width="482" height="220"></li>
+  <li>Locate the <em>Image CSS Class</em> setting (it&rsquo;s in the advanced options)</li>
+  <li>Add the class to that setting (<strong>nopin</strong> in our case). If its value is not empty, make sure
+    you add a space before the value you&rsquo;re adding.</li>
+  <li>After adding the value, the class setting should look like the following:<br>
+    <img src="images/image_editor_css_class_example.jpg" alt="Image CSS class setting example" width="875" height="134"></li>
+  <li>Update the image (the button is in the right bottom corner).</li>
+  <li>Save the post</li>
+</ul>
+
+<p><strong>Using text editor</strong></p>
+<ul>
+  <li>Switch to the <em>Text</em> tab in the post editor.</li>
+  <li>Locate the code of the image. It usually looks like the following:
+    <pre><code>&lt;img class="alignright" src="http://www.example.com/wp-content/image.png" width="500" height="250" /&gt;</code></pre>
+  </li>
+  <li>As you can see, the image already has the <em>class</em> attribute. If it doesn&rsquo;t, you can add it
+    by adding <strong>class=&quot;&quot;</strong> after &lt;img (make sure there&rsquo;s a space before the <em>class</em>
+    attribute)</li>
+  <li>Now you can add the disabled class of your choice (in our example it&rsquo;s the <strong>nopin</strong>
+    class) to the image&rsquo;s class attribute. After that modification the code should look like:
+    <pre><code>&lt;img class="alignright nopin" src="http://www.example.com/wp-content/image.png" width="500" height="250" /&gt;</code></pre>
+  </li>
+  <li>Save the post</li>
+</ul>
+
+<p>Once you add the class to the image using one of the two described ways, the image shouldn&rsquo;t show
+the &ldquo;Pin it&rdquo; button anymore.</p>
+
+<p>If need be, you can do the process in reverse &mdash; first, find the class attribute of the image you
+want to delete, then choose one of the classes (if there are many), add it to the <em>Disabled
+classes</em> setting and save plugin&rsquo;s settings. That will work too.</p>
+
+<p>If the image you want to disable the button on doesn&rsquo;t have a class and you can&rsquo;t add it (e.g. a
+plugin generates its code), you can (in most cases) disable it using the <em>Image selector</em> setting.
+Using that setting requires knowledge of jQuery and I couldn&rsquo;t possibly cover it in a tutorial.
+If that&rsquo;s the case, ask your web developer for help or use the support forum.</p>
+
+<h3 id="minimum-image-resolution">Minimum image resolution</h3>
+
+<p>Minimum image resolution is a set of constraints that allows one to disable smaller images from
+showing the &ldquo;Pin it&rdquo; button. One can set different size constraints for small devices because on
+smaller devices images will be, inevitably, smaller. When checking the image against the constraints
+set, the size of the image on screen is taken into account. That means if an image is 1500 pixels
+high and wide &ldquo;naturally&rdquo; but on screen its size is only 200 pixels high and wide, it will be
+treated as a 200&times;200 image.</p>
+
+<p><strong>Example</strong><br>
+Let&rsquo;s say you have an image at the bottom of every blog post, like a signature or an ad, and you
+would like to disable it. The easiest way to do that would be:</p>
+<ul>
+  <li>Check the size of the image</li>
+  <li>Choose the smaller number of the two (height and width)</li>
+  <li>If the width is smaller, set the minimum width for small and large screens. If the height is
+    smaller, set the minimum height for small and large screens. The value you use should be the
+    width/height of the image + 1</li>
+  <li>Save settings and check if the image stopped showing the button</li>
+</ul>
+
+<h2 id="visual-settings">Visual settings</h2>
+
+<h3 id="pin-linked-images">Pin linked images</h3>
+
+<p>When checked, if you link an image to its full-resolution version, the plugin pins the
+full-resolution version. Linking an image to its full-resolution version can be done when adding an
+image. In the <em>Insert Media</em> screen, in the <em>Attachment Display Settings</em> section set the
+<em>Link to</em> property to <strong>Media File</strong>. That&rsquo;s it.</p>
+<img src="images/Pin-linked-image.jpg" alt="Pin linked image setting" width="288" height="188">
+
+<p>This setting produces HTML code that looks like the following:</p>
+<pre><code>&lt;a href="http://www.example.com/wp-content/image_large.jpg"&gt;&lt;img class="alignright wp-image-58" src="http://www.example.com/wp-content/image_small.jpg" width="500" height="250" /&gt;&lt;/a&gt;</code></pre>
+
+<h3 id="transparency-value">Transparency value</h3>
+
+<p>Transparency value is responsible for the hover effect over the image. Set it to 0 to disable the
+grey overlay when user hovers over the image.</p>
+
+<h2 id="downloading-older-version">Downloading an older version of the plugin</h2>
+
+<p>Every released version of the plugin is available
+<a href="https://wordpress.org/plugins/jquery-pin-it-button-for-images/developers/" target="_blank" rel="noopener">here</a>,
+in the &ldquo;Other versions&rdquo; section. To install it, first make sure you have deactivated and deleted
+the version you&rsquo;re using currently. Then download the zip file of the version you would like to
+use. Now you need to install it using the <em>Plugin Upload</em> feature. You can read about it
+<a href="https://www.wpbeginner.com/beginners-guide/step-by-step-guide-to-install-a-wordpress-plugin-for-beginners/" target="_blank" rel="nofollow noopener">here</a>
+in the <em>Install a Plugin using the WordPress Admin Plugin Upload</em> section.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If you have any issues with the plugin, report them on
+<a href="https://github.com/dougfinnie/jquery-pin-it-button-for-images/issues" target="_blank" rel="noopener">GitHub Issues</a>
+or in the <a href="https://wordpress.org/support/plugin/jquery-pin-it-button-for-images" target="_blank" rel="noopener">WordPress support forum</a>.
+Few things to do when reporting a problem:</p>
+<ul>
+  <li>If you&rsquo;re using a caching plugin (like W3 Total Cache) on your website, clear its cache.
+    That might fix the issue.</li>
+  <li><strong>One thread = one person + one problem.</strong><br>
+    If you have a problem, start a new thread. Don&rsquo;t post in a thread started by someone else
+    saying &ldquo;I have the same problem&rdquo;. Start a new thread and answer only there. If another
+    problem occurs in the future, start a new thread instead of reviving the old one.</li>
+  <li><strong>Include a URL address of the website and make sure the plugin is activated.</strong><br>
+    Unless it&rsquo;s a settings page issue or an error that crashes the site, the URL of the website
+    and the plugin activated are needed for debugging. If the plugin works but things aren&rsquo;t
+    rendering as they should, let us know which browser you are using.</li>
+  <li><strong>If your issue is resolved, please let us know.</strong></li>
+</ul>
+
+<h2 id="faq">Common issues and Frequently Asked Questions</h2>
+
+<h3 id="something-went-wrong">&ldquo;Something went wrong&rdquo; when pinning</h3>
+
+<p>If you repeatedly get the message that says &ldquo;Sorry! Something went wrong on our end. Please try
+again.&rdquo; after trying to pin an image, in almost all cases it&rsquo;s caused by the hosting of your
+website. It&rsquo;s usually caused by some server settings that prevent Pinterest from downloading the
+image. Please email your hosting provider, describe that you&rsquo;re unable to pin images from your
+site and ask them if they could fix it.</p>
+
+<h3 id="repin">Can I set up an image to be a repin of the original image?</h3>
+
+<p>This requires adding a <code>data-pin-id</code> attribute to the image element containing the original
+Pinterest pin ID. See the
+<a href="https://github.com/dougfinnie/jquery-pin-it-button-for-images" target="_blank" rel="noopener">GitHub repository</a>
+for more details.</p>
+
+<h3 id="empty-settings-page">Empty settings page</h3>
+
+<p>If you&rsquo;re using Cloudflare and have the settings page empty, there&rsquo;s an easy fix for that. In
+Cloudflare&rsquo;s &lsquo;Speed&rsquo; settings, please disable Auto Minify for JavaScript and purge the cache. If
+you&rsquo;re using any other caching plugin, clear its cache too. Then clear your browser&rsquo;s cache or
+switch to incognito mode. Now you should be able to see the settings page correctly. Sometimes you
+need to give it a few minutes after disabling Auto Minify and accessing the settings page.</p>
+
+<p>You can disable Auto Minify, adjust your settings and then enable Auto Minify again, which should
+work just fine. Cloudflare refuses to fix this issue and suggests what I suggested.</p>
+
+<p>If you&rsquo;re up for it, you can keep Auto Minify enabled but disable it on the plugin&rsquo;s JavaScript
+file using Page Rules. To do that, in Cloudflare&rsquo;s Page Rules add a new rule with a URL address
+like this: <em>http://www.yoururladdress.com/wp-content/plugins/jquery-pin-it-button-for-images/js/jpibfi.admin.js*</em>,
+add the <em>Disable Performance</em> setting and <em>Save and Deploy</em> the rule. Once you force refresh the
+plugin&rsquo;s settings page everything should work properly.</p>
+
+<h3 id="mobile">Plugin does not work on mobile devices</h3>
+
+<p>The plugin shows the &ldquo;Pin it&rdquo; button when a user hovers over an image. That works perfectly fine
+for desktop machines. On mobile devices, in most cases a hover event doesn&rsquo;t fire until the user
+taps the image, so the button may not appear reliably. If your audience is primarily on mobile,
+consider always showing the button using the <em>Button display mode</em> setting.</p>
+
+<h3 id="visual-composer">Enabled/disabled classes don&rsquo;t work in Visual Composer</h3>
+
+<p>If you&rsquo;re using Visual Composer to add images (e.g. using the Image Element) and want to add or
+remove the Pin it button to/from images, the enabled/disabled classes settings won&rsquo;t work. That&rsquo;s
+because Visual Composer won&rsquo;t add the class directly to the image element, but to its container
+instead. The easiest way to make it work is to:</p>
+<ul>
+  <li>Add class <em>nopin</em> to the Image Element or the whole gallery</li>
+  <li>Change the image selector setting to: <code>.jpibfi_container img:not(.nopin img)</code></li>
+</ul>
+
+<h3 id="cannot-click">&ldquo;Pin It&rdquo; button is visible but I cannot click it</h3>
+
+<p>That&rsquo;s usually caused by your theme&rsquo;s CSS. In most cases adding the following line of CSS fixes
+the issue:</p>
+<pre><code>a.pinit-button { z-index:10000000 !important; }</code></pre>
+
+<h3 id="non-img">&ldquo;Pin it&rdquo; button doesn&rsquo;t show up on non-img elements</h3>
+
+<p>The plugin only supports the <code>img</code> tag. If you have an image that&rsquo;s being shown using another
+tag (e.g. a <code>div</code> with a background image), the &ldquo;Pin it&rdquo; button cannot be shown on it.
+<a href="https://github.com/dougfinnie/jquery-pin-it-button-for-images/issues" target="_blank" rel="noopener">Open an issue</a>
+if you&rsquo;d like to discuss support for additional element types.</p>
+
+<h3 id="slider">No &ldquo;Pin it&rdquo; button on a slider</h3>
+
+<p>The plugin doesn&rsquo;t work properly with most sliders. If it&rsquo;s working with your slider, that&rsquo;s most
+likely by accident, not by design. Each slider plugin works differently and it&rsquo;s pretty much
+impossible to handle all possible scenarios.</p>
+
+<h3 id="multiple-images">Pin It button does not bring up multiple images to choose from</h3>
+
+<p>The plugin is designed to share the image the user clicks on. If you want to have multiple images
+to choose from, consider using
+<a href="https://developers.pinterest.com/tools/widget-builder/?buttonType=imageHover" target="_blank" rel="noopener">Pinterest&rsquo;s widget builder</a>
+or another plugin.</p>
+
+<h3 id="two-buttons">Two &ldquo;Pin It&rdquo; buttons</h3>
+
+<p>The plugin adds exactly one &ldquo;Pin it&rdquo; button. If you have more than one showing up, it&rsquo;s most
+likely either another plugin adding it or a browser extension/phone app adding it.</p>
+
+<h3 id="social-icons">Disable Pin it button from social media icons</h3>
+
+<p>Use <a href="#minimum-image-resolution">minimum image resolution</a> to exclude small images like
+social media icons from showing the button.</p>
+
+<h3 id="broken-icon">Broken icon on the button</h3>
+
+<p>If you&rsquo;re using any kind of caching plugin, try adding the following URL to the ignore URLs:</p>
+<pre><code>/wp-content/plugins/jquery-pin-it-button-for-images/css/client.css</code></pre>
+
+</body>
+</html>

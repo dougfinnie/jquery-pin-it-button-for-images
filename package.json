@@ -1,0 +1,11 @@
+{
+  "name": "jquery-pin-it-button-for-images",
+  "version": "4.0.0",
+  "description": "Build scripts for jQuery Pin It Button for Images WordPress plugin",
+  "scripts": {
+    "build": "cp src/js/jpibfi.client.js plugin/js/jpibfi.client.js",
+    "zip": "npm run build && cp -r plugin jquery-pin-it-button-for-images && zip -r jquery-pin-it-button-for-images-$npm_package_version.zip jquery-pin-it-button-for-images && rm -rf jquery-pin-it-button-for-images",
+    "dev": "while true; do inotifywait -e modify src/js/jpibfi.client.js 2>/dev/null && npm run build; done"
+  },
+  "private": true
+}

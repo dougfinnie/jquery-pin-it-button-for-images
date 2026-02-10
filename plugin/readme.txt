@@ -3,7 +3,7 @@ Contributors: mrsztuczkens, redearthdesign, brocheafoin, robertark
 Tags: pinterest, pin it, button, image, images, pinit, social media, hover, click, photo, photos
 Requires at least: 3.3.0
 Tested up to: 5.5.1
-Stable tag: 3.0.6
+Stable tag: 4.0.0
 License: GPLv2 or later
 
 Highlights images on hover and adds a Pinterest "Pin It" button over them for easy pinning.

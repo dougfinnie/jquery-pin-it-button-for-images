@@ -6,7 +6,7 @@ Description: Highlights images on hover and adds a "Pin It" button over them for
 Text Domain: jquery-pin-it-button-for-images
 Domain Path: /languages
 Author: Marcin Skrzypiec
-Version:3.0.6
+Version: 4.0.0
 Author URI: https://highfiveplugins.com/
 */
 
@@ -18,7 +18,7 @@ if ( !class_exists( 'jQuery_Pin_It_Button_For_Images' ) ) {
 	final class jQuery_Pin_It_Button_For_Images {
 
 		function __construct() {
-			$version = '3.0.6';
+			$version = '4.0.0';
 			require_once plugin_dir_path(__FILE__) . 'includes/jpibfi.php';
 			new JPIBFI(__FILE__,  $version);
 		}
