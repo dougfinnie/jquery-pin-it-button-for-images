@@ -103,7 +103,7 @@ class JPIBFI_Welcome_Screen {
             <div class="feature-section two-col">
                 <div class="col">
                     <h3><?php _e( 'Documentation', 'jquery-pin-it-button-for-images' ); ?></h3>
-                    <p><?php printf( __( 'If you are having difficulties with some aspects of the plugin, the first place to look for help is <a href="%s" target="_blank">the documentation</a> of the plugin. Chances are you will find what you are looking for there.', 'jquery-pin-it-button-for-images' ), 'https://highfiveplugins.com/jpibfi/jquery-pin-it-button-for-images-documentation/' ); ?></p>
+                    <p><?php printf( __( 'If you are having difficulties with some aspects of the plugin, the first place to look for help is <a href="%s" target="_blank">the documentation</a> of the plugin. Chances are you will find what you are looking for there.', 'jquery-pin-it-button-for-images' ), 'https://dougfinnie.github.io/jquery-pin-it-button-for-images/docs/' ); ?></p>
                 </div>
                 <div class="col">
                     <h3><?php _e( 'Support', 'jquery-pin-it-button-for-images' ); ?></h3>

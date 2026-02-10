@@ -3,7 +3,7 @@ Contributors: mrsztuczkens, redearthdesign, brocheafoin, robertark
 Tags: pinterest, pin it, button, image, images, pinit, social media, hover, click, photo, photos
 Requires at least: 3.3.0
 Tested up to: 5.5.1
-Stable tag: 3.0.6
+Stable tag: 4.0.0
 License: GPLv2 or later
 
 Highlights images on hover and adds a Pinterest "Pin It" button over them for easy pinning.
@@ -26,7 +26,7 @@ Once you activate the plugin, it's ready to go with the default settings - butto
 **Translators**
 - Spanish (es_ES) -  Andrew Kurtis [WebHostingHub](http://www.webhostinghub.com/)
 
-If you want to learn more about the plugin, visit its website: https://highfiveplugins.com/jpibfi/jquery-pin-it-button-for-images-documentation/
+If you want to learn more about the plugin, visit its documentation: https://dougfinnie.github.io/jquery-pin-it-button-for-images/docs/
 
 (This plugin is not related to or endorsed by Pinterest or its affiliates)
 
