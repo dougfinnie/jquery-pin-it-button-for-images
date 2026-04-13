@@ -19,6 +19,25 @@ jobs:
         with:
           node-version: '20'
 
+      # Minimal runner images often omit `zip`; npm script shells out to it.
+      - name: Install zip
+        run: |
+          if command -v zip >/dev/null 2>&1; then
+            exit 0
+          fi
+          if command -v apt-get >/dev/null 2>&1; then
+            apt-get update && apt-get install -y zip
+          elif command -v apk >/dev/null 2>&1; then
+            apk add --no-cache zip
+          elif command -v dnf >/dev/null 2>&1; then
+            dnf install -y zip
+          elif command -v yum >/dev/null 2>&1; then
+            yum install -y zip
+          else
+            echo "No supported package manager found; install zip in the runner image." >&2
+            exit 1
+          fi
+
       - name: Build ZIP
         run: npm run zip
 

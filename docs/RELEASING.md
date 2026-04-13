@@ -8,6 +8,8 @@
 
 Your Forgejo server must have **Actions enabled** for the repo and at least one **runner** whose label matches `runs-on` in the workflow (default: `docker`). If your runner uses another label (e.g. `ubuntu`), edit the workflow file.
 
+The workflow installs **`zip`** on first use if the job image is Debian/Alpine/Fedora-like; if your image is minimal and uses something else, bake `zip` into the runner image or extend the install step.
+
 ## Where the version lives
 
 | Location | Role |
