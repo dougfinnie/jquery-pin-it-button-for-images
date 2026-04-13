@@ -31,7 +31,9 @@ class JPIBFI_Content_Image_Pin_Attributes {
 		$post_url     = isset( $post_snapshot['post_url'] ) ? $post_snapshot['post_url'] : '';
 		$post_title   = isset( $post_snapshot['post_title'] ) ? $post_snapshot['post_title'] : '';
 
-		$attr_pattern = '/ ([-\w]+)[ ]*=[ ]*([\"\'])(.*?)\2/i';
+		// WordPress / the block editor often break lines between `<img` and `src`; a single-space
+		// prefix would miss every attribute and strip the original tag down to `<img data-…>`.
+		$attr_pattern = '/\s+([-\w]+)[ ]*=[ ]*([\"\'])(.*?)\2/is';
 
 		return preg_replace_callback(
 			'/<img[^>]*>/i',

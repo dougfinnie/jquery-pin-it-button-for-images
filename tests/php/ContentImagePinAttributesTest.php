@@ -54,6 +54,31 @@ final class ContentImagePinAttributesTest extends TestCase {
 		$this->assertStringContainsString( 'data-jpibfi-caption="', $out );
 	}
 
+	public function test_preserves_src_when_img_attributes_are_split_across_lines(): void {
+		$injector = new JPIBFI_Content_Image_Pin_Attributes(
+			static function () {
+				return null;
+			}
+		);
+
+		$html = "<figure class=\"wp-block-image\">\n<img\n\tloading=\"lazy\"\n\tsrc=\"/uploads/photo.jpg\"\n\talt=\"A\"\n\tclass=\"wp-image-7\"\n/></figure>";
+
+		$out = $injector->inject_attributes(
+			$html,
+			array(
+				'post_excerpt' => '',
+				'post_url'     => 'https://example.com/p/',
+				'post_title'   => 'T',
+			),
+			false,
+			false
+		);
+
+		$this->assertStringContainsString( 'src="/uploads/photo.jpg"', $out );
+		$this->assertStringContainsString( 'loading="lazy"', $out );
+		$this->assertStringContainsString( 'data-jpibfi-src="/uploads/photo.jpg"', $out );
+	}
+
 	public function test_post_id_from_image_classes(): void {
 		$this->assertSame(
 			'42',
