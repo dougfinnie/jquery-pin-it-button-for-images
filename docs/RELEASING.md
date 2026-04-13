@@ -10,6 +10,8 @@ Your Forgejo server must have **Actions enabled** for the repo and at least one 
 
 The workflow installs **`zip`** on first use if the job image is Debian/Alpine/Fedora-like; if your image is minimal and uses something else, bake `zip` into the runner image or extend the install step.
 
+**Artifacts:** the workflow uses **`actions/upload-artifact@v3`** because Forgejo (and GHES) do not support the v4+ artifact backend; do not bump that action to v4 unless your Forgejo release docs say otherwise.
+
 ## Where the version lives
 
 | Location | Role |
