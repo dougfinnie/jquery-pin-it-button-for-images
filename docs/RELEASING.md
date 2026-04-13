@@ -12,6 +12,8 @@ The workflow installs **`zip`** on first use if the job image is Debian/Alpine/F
 
 **Artifacts:** the workflow uses **`actions/upload-artifact@v3`** because Forgejo (and GHES) do not support the v4+ artifact backend; do not bump that action to v4 unless your Forgejo release docs say otherwise.
 
+**Artifact upload `ENOTFOUND` for your Forgejo hostname:** job containers often cannot resolve **Tailscale-only** (`*.ts.net`) names. Fix **runner** DNS, `container.options` / `--add-host`, or Forgejo internal URL settings — see **`docs/forgejo-actions-networking.md`**.
+
 ## Where the version lives
 
 | Location | Role |
