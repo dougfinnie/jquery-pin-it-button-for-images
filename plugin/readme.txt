@@ -2,7 +2,7 @@
 Contributors: dougfinnie, mrsztuczkens, redearthdesign, brocheafoin, robertark
 Tags: pinterest, pin it, button, image, images, pinit, social media, hover, click, photo, photos
 Requires at least: 3.3.0
-Tested up to: 5.5.1
+Tested up to: 6.9.4
 Stable tag: 4.0.0
 License: GPLv2 or later
 
@@ -69,6 +69,10 @@ Please report them in the plugin's support forum on Wordpress.org.
 4. Pinterest pop-up window
 
 == Changelog ==
+
+= 4.0.0 =
+* Community-maintained fork (see Credits).
+* Smoke-tested with WordPress 6.9.4 (block editor content, front-end Pin It hover).
 
 = 3.0.6 =
 * Released 2020-09-30
