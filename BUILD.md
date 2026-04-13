@@ -13,8 +13,10 @@ npm run zip     # runs build, then produces jquery-pin-it-button-for-images-4.0.
 npm run dev     # watches src/js/ and re-runs build on change (requires inotifywait)
 ```
 
-The `zip` command produces a `jquery-pin-it-button-for-images-4.0.0.zip` archive containing a
+The `zip` command produces `jquery-pin-it-button-for-images-<version>.zip` (version from `package.json`) containing a
 `jquery-pin-it-button-for-images/` directory — the correct structure for WordPress plugin upload.
+
+Forgejo Actions on **`main`** runs the same zip step and stores the file as a workflow artifact; see **`docs/RELEASING.md`** for versioning and release notes.
 
 ## Testing with WordPress Playground
 

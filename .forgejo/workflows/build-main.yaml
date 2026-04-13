@@ -1,0 +1,30 @@
+# Build installable WordPress plugin ZIP on every push to main.
+# Requires: Forgejo Actions + a runner whose label matches runs-on (default: docker).
+# Artifact: jquery-pin-it-button-for-images-<version>.zip (version from package.json)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: docker
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build ZIP
+        run: npm run zip
+
+      - name: Upload plugin ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: jquery-pin-it-button-for-images-zip
+          path: jquery-pin-it-button-for-images-*.zip
+          if-no-files-found: error
