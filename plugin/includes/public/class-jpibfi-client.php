@@ -142,7 +142,13 @@ class JPIBFI_Client {
 			$jscript = ob_get_clean();
 		}
 
-		return '<input class="jpibfi" type="hidden">' . $content . $jscript;
+		// Only `the_content` is full post HTML. Thumbnail/excerpt fragments must stay a single <img>
+		// (or plain excerpt); prepending <input> breaks featured images and can leave the input visible.
+		if ( 'the_content' === current_filter() ) {
+			return '<input class="jpibfi" type="hidden" value="" aria-hidden="true" tabindex="-1" />' . $content . $jscript;
+		}
+
+		return $content . $jscript;
 	}
 
 	/**
