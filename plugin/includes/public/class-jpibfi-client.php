@@ -24,6 +24,7 @@ class JPIBFI_Client {
 
 		//load dependency
 		require_once 'JPIBFI_Client_Helper.php';
+		require_once __DIR__ . '/class-jpibfi-content-image-pin-attributes.php';
 	}
 
 	private function add_conditional_filters() {
@@ -108,47 +109,19 @@ class JPIBFI_Client {
 		$get_description = in_array( 'img_description', $visual_options['description_option'] );
 		$get_caption     = in_array( 'img_caption', $visual_options['description_option'] );
 
-		$imgPattern  = '/<img[^>]*>/i';
-		$attrPattern = '/ ([-\w]+)[ ]*=[ ]*([\"\'])(.*?)\2/i';
-
-		preg_match_all( $imgPattern, $content, $images, PREG_SET_ORDER );
-
-		foreach ( $images as $img ) {
-
-			preg_match_all( $attrPattern, $img[0], $attributes, PREG_SET_ORDER );
-
-			$new_img = '<img';
-			$src     = '';
-			$id      = '';
-
-			foreach ( $attributes as $att ) {
-				$full  = $att[0];
-				$name  = $att[1];
-				$value = $att[3];
-
-				$new_img .= $full;
-
-				if ( 'class' == $name ) {
-					$id = $this->get_post_id_from_image_classes( $value );
-				}
-
-				if ( 'src' == $name ) {
-					$src = $value;
-				}
-			}
-
-            $att = $get_description || $get_caption ? $this->get_attachment( $id, $src ): null;
-            if ( $att != null ) {
-                $new_img .= $get_description ? sprintf( ' data-jpibfi-description="%s"', esc_attr( $att->post_content ) ): '';
-                $new_img .= $get_caption ? sprintf( ' data-jpibfi-caption="%s"', esc_attr( $att->post_excerpt ) ): '';
-            }
-
-			$new_img .= sprintf( ' data-jpibfi-post-excerpt="%s"', esc_attr( wp_kses( $post->post_excerpt, array() ) ) );
-			$new_img .= sprintf( ' data-jpibfi-post-url="%s"', esc_attr( get_permalink() ) );
-			$new_img .= sprintf( ' data-jpibfi-post-title="%s"', esc_attr( get_the_title() ) );
-			$new_img .= sprintf( ' data-jpibfi-src="%s"', esc_attr( $src ) );
-			$new_img .= ' >';
-			$content = str_replace( $img[0], $new_img, $content );
+		$injector = new JPIBFI_Content_Image_Pin_Attributes( array( $this, 'get_attachment' ) );
+		$filtered = $injector->inject_attributes(
+			$content,
+			array(
+				'post_excerpt' => ( $post && isset( $post->post_excerpt ) ) ? $post->post_excerpt : '',
+				'post_url'     => get_permalink(),
+				'post_title'   => get_the_title(),
+			),
+			$get_description,
+			$get_caption
+		);
+		if ( null !== $filtered ) {
+			$content = $filtered;
 		}
 		$jscript = '';
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
@@ -170,21 +143,6 @@ class JPIBFI_Client {
 		}
 
 		return '<input class="jpibfi" type="hidden">' . $content . $jscript;
-	}
-
-
-	//function gets the id of the image by searching for class with wp-image- prefix, otherwise returns empty string
-	function get_post_id_from_image_classes( $class_attribute ) {
-		$classes = preg_split( '/\s+/', $class_attribute, - 1, PREG_SPLIT_NO_EMPTY );
-		$prefix  = 'wp-image-';
-
-		foreach ( $classes as $class ) {
-			if ( $prefix === substr( $class, 0, strlen( $prefix ) ) ) {
-				return str_replace( $prefix, '', $class );
-			}
-		}
-
-		return '';
 	}
 
 	/**
