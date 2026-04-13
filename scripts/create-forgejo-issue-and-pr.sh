@@ -2,14 +2,24 @@
 # Create a Forgejo issue, then open a PR that references it (Closes #N).
 #
 # Usage:
-#   export FORGEJO_TOKEN='…'   # Forgejo → Settings → Applications → Generate token (repo + issue scopes)
+#   cp .env.local.example .env.local   # once; edit and set FORGEJO_TOKEN
 #   ./scripts/create-forgejo-issue-and-pr.sh
+#
+# Or: export FORGEJO_TOKEN='…' for a single shell session.
 #
 # Optional overrides:
 #   FORGEJO_API_ROOT  default https://mintie.grouse-matrix.ts.net/forgejo/api/v1
 #   FORGEJO_REPO      default doug/jquery-pin-it-button-for-images
 
 set -euo pipefail
+
+REPO_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+if [[ -f "${REPO_ROOT}/.env.local" ]]; then
+	set -a
+	# shellcheck disable=SC1090
+	source "${REPO_ROOT}/.env.local"
+	set +a
+fi
 
 API_ROOT="${FORGEJO_API_ROOT:-https://mintie.grouse-matrix.ts.net/forgejo/api/v1}"
 REPO="${FORGEJO_REPO:-doug/jquery-pin-it-button-for-images}"
