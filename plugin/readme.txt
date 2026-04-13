@@ -1,5 +1,5 @@
 === jQuery Pin It Button for Images ===
-Contributors: mrsztuczkens, redearthdesign, brocheafoin, robertark
+Contributors: dougfinnie, mrsztuczkens, redearthdesign, brocheafoin, robertark
 Tags: pinterest, pin it, button, image, images, pinit, social media, hover, click, photo, photos
 Requires at least: 3.3.0
 Tested up to: 5.5.1
@@ -29,6 +29,11 @@ Once you activate the plugin, it's ready to go with the default settings - butto
 If you want to learn more about the plugin, visit its documentation: https://dougfinnie.github.io/jquery-pin-it-button-for-images/docs/
 
 (This plugin is not related to or endorsed by Pinterest or its affiliates)
+
+== Credits ==
+
+* **v4.0.0 and later:** Maintained by **Doug Finnie** as a community fork. Source and issues: https://github.com/dougfinnie/jquery-pin-it-button-for-images
+* **v3.0.6 and earlier:** Original plugin by **Marcin Skrzypiec** (mrsztuczkens) and contributors (see list above and changelog). The last upstream release was 2020-09-30.
 
 == Installation ==
 

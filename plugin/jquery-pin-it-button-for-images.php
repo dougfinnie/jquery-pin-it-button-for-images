@@ -2,10 +2,10 @@
 /*
 Plugin Name: jQuery Pin It Button for Images
 Plugin URI: https://dougfinnie.github.io/jquery-pin-it-button-for-images/docs/
-Description: Highlights images on hover and adds a "Pin It" button over them for easy pinning.
+Description: Highlights images on hover and adds a "Pin It" button over them for easy pinning. Community fork (v4+) maintained by Doug Finnie; original releases through v3.0.6 by Marcin Skrzypiec and contributors.
 Text Domain: jquery-pin-it-button-for-images
 Domain Path: /languages
-Author: Marcin Skrzypiec
+Author: Doug Finnie
 Version: 4.0.0
 Author URI: https://github.com/dougfinnie/jquery-pin-it-button-for-images
 */
