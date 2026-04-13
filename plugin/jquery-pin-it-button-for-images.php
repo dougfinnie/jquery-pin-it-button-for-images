@@ -13,14 +13,18 @@ Author URI: https://github.com/dougfinnie/jquery-pin-it-button-for-images
 if ( !defined( 'WPINC' ) )
 	die;
 
+if ( ! defined( 'JPIBFI_VERSION' ) ) {
+	$jpibfi_headers = get_file_data( __FILE__, array( 'Version' => 'Version' ), 'plugin' );
+	define( 'JPIBFI_VERSION', ! empty( $jpibfi_headers['Version'] ) ? $jpibfi_headers['Version'] : '4.0.0' );
+}
+
 if ( !class_exists( 'jQuery_Pin_It_Button_For_Images' ) ) {
 
 	final class jQuery_Pin_It_Button_For_Images {
 
 		function __construct() {
-			$version = '4.0.0';
 			require_once plugin_dir_path(__FILE__) . 'includes/jpibfi.php';
-			new JPIBFI(__FILE__,  $version);
+			new JPIBFI(__FILE__, JPIBFI_VERSION);
 		}
 	}
 

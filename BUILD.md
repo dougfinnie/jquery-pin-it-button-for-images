@@ -2,7 +2,8 @@
 
 ## Prerequisites
 
-Node.js (any recent version) for the npm scripts. No other dependencies are required.
+- **Node.js** (any recent version) for the npm scripts (`build`, `zip`, `dev`).
+- **PHP** (8.1+ recommended; 8.4 works) and **Composer** if you want to run the PHP unit tests.
 
 ## Build commands
 
@@ -30,6 +31,15 @@ works after a change.
 6. Hover over the image — the Pinterest "Pin It" button should appear.
 
 The Playground instance is discarded when you close the tab, so each test starts clean.
+
+## PHP unit tests
+
+These tests exercise the image attribute injector without loading WordPress (minimal stubs in `tests/bootstrap.php`).
+
+```bash
+composer install   # once, installs PHPUnit into vendor/
+npm run test:php   # or: ./vendor/bin/phpunit
+```
 
 ## Local development
 

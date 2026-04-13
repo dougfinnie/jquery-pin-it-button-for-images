@@ -5,7 +5,8 @@
   "scripts": {
     "build": "cp src/js/jpibfi.client.js plugin/js/jpibfi.client.js",
     "zip": "npm run build && cp -r plugin jquery-pin-it-button-for-images && zip -r jquery-pin-it-button-for-images-$npm_package_version.zip jquery-pin-it-button-for-images && rm -rf jquery-pin-it-button-for-images",
-    "dev": "while true; do inotifywait -e modify src/js/jpibfi.client.js 2>/dev/null && npm run build; done"
+    "dev": "while true; do inotifywait -e modify src/js/jpibfi.client.js 2>/dev/null && npm run build; done",
+    "test:php": "vendor/bin/phpunit"
   },
   "private": true
 }
