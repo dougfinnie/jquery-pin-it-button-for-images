@@ -1,2 +1,5 @@
 jquery-pin-it-button-for-images-*.zip
 jquery-pin-it-button-for-images/
+/vendor/
+/.cursor/
+.phpunit.result.cache
